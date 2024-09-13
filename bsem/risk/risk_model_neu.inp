@@ -1,0 +1,35 @@
+TITLE:
+Testing
+DATA:
+FILE = "risk_model_neu.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc risk; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON risk; 
+chcc ON risk; 
+casc ON risk; 
+cacc ON risk; 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+risk WITH risk; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[risk]; 
+
+OUTPUT:
+STANDARDIZED;

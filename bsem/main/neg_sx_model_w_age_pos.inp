@@ -1,0 +1,41 @@
+TITLE:
+Testing
+DATA:
+FILE = "neg_sx_model_w_age_pos.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc negsx chage; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON negsx@0; 
+chsc ON chage* (a); 
+chcc ON negsx; 
+chcc ON chage* (a); 
+casc ON negsx@0; 
+casc ON chage* (b); 
+cacc ON negsx; 
+cacc ON chage* (b); 
+chsc WITH chcc@0; 
+chsc WITH casc@0; 
+chsc WITH cacc@0; 
+chcc WITH casc@0; 
+chcc WITH cacc; 
+casc WITH cacc@0; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+negsx WITH negsx; 
+chage WITH chage; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[negsx]; 
+[chage]; 
+
+OUTPUT:
+STANDARDIZED;

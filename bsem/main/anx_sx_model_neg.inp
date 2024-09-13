@@ -1,0 +1,35 @@
+TITLE:
+Testing
+DATA:
+FILE = "anx_sx_model_neg.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc bai; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON bai; 
+chcc ON bai; 
+casc ON bai; 
+cacc ON bai; 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+bai WITH bai; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[bai]; 
+
+OUTPUT:
+STANDARDIZED;

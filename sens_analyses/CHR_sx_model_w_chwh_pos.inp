@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "CHR_sx_model_w_chwh_pos.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc CHR chwh; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON CHR; 
+chsc ON chwh; 
+chcc ON CHR; 
+chcc ON chwh; 
+casc ON CHR* (a); 
+casc ON chwh; 
+cacc ON CHR* (a);  
+cacc ON chwh; 
+chsc WITH chcc@0; 
+chsc WITH casc@0; 
+chsc WITH cacc@0; 
+chcc WITH casc@0; 
+chcc WITH cacc; 
+casc WITH cacc@0; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+CHR WITH CHR; 
+CHR WITH chwh; 
+chwh WITH chwh; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[CHR]; 
+[chwh]; 
+
+OUTPUT:
+STANDARDIZED;

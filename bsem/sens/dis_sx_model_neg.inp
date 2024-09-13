@@ -1,0 +1,35 @@
+TITLE:
+Testing
+DATA:
+FILE = "../dis_sx_model_neg.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc dissx; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON dissx@0; 
+chcc ON dissx; 
+casc ON dissx@0; 
+cacc ON dissx@0; 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+dissx WITH dissx; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[dissx]; 
+
+OUTPUT:
+STANDARDIZED;

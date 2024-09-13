@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "dis_sx_model_w_age_pos.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc dissx chage; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON dissx@0; 
+chsc ON chage; 
+chcc ON dissx; 
+chcc ON chage; 
+casc ON dissx@0; 
+casc ON chage; 
+cacc ON dissx; 
+cacc ON chage; 
+chsc WITH chcc@0;
+chsc WITH casc@0;
+chsc WITH cacc@0;
+chcc WITH casc@0;
+chcc WITH cacc;
+casc WITH cacc@0;
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+dissx WITH dissx; 
+dissx WITH chage; 
+chage WITH chage; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[dissx]; 
+[chage]; 
+
+OUTPUT:
+STANDARDIZED;

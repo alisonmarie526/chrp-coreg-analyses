@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "CHR_sx_model_w_fem_neu.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc CHR chfm; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON CHR@0; 
+chsc ON chfm; 
+chcc ON CHR; 
+chcc ON chfm; 
+casc ON CHR@0; 
+casc ON chfm; 
+cacc ON CHR; 
+cacc ON chfm; 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+CHR WITH CHR; 
+CHR WITH chfm; 
+chfm WITH chfm; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[CHR]; 
+[chfm]; 
+
+OUTPUT:
+STANDARDIZED;

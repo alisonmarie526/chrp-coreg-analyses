@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "pos_sx_model_w_chfm_neu.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc possx chfm; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON possx* (a); 
+chsc ON chfm; 
+chcc ON possx; 
+chcc ON chfm; 
+casc ON possx* (a); 
+casc ON chfm; 
+cacc ON possx* (a); 
+cacc ON chfm; 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+possx WITH possx; 
+possx WITH chfm; 
+chfm WITH chfm; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[possx]; 
+[chfm]; 
+
+OUTPUT:
+STANDARDIZED;

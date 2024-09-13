@@ -1,0 +1,429 @@
+Mplus VERSION 8.2 (Mac)
+MUTHEN & MUTHEN
+08/28/2024   2:16 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Testing
+  DATA:
+  FILE = "dep_sx_model_w_age_neu.dat";
+
+  VARIABLE:
+  NAMES = chsc chcc casc cacc bdi chage;
+   MISSING=.;
+
+  ANALYSIS:
+  ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+  MODEL:
+  chsc ON bdi@0;
+  chsc ON chage*(a);
+  chcc ON bdi;
+  chcc ON chage*(a);
+  casc ON bdi@0;
+  casc ON chage* (b);
+  cacc ON bdi@0;
+  cacc ON chage* (b);
+  chsc WITH chcc;
+  chsc WITH casc;
+  chsc WITH cacc;
+  chcc WITH casc;
+  chcc WITH cacc;
+  casc WITH cacc;
+  chsc WITH chsc;
+  chcc WITH chcc;
+  casc WITH casc;
+  cacc WITH cacc;
+  bdi WITH bdi;
+
+  chage WITH chage;
+  [chsc];
+  [chcc];
+  [casc];
+  [cacc];
+  [bdi];
+  [chage];
+
+  OUTPUT:
+  STANDARDIZED;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Testing
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          66
+
+Number of dependent variables                                    4
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   CHSC        CHCC        CASC        CACC
+
+Observed independent variables
+   BDI         CHAGE
+
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+
+Input data file(s)
+  dep_sx_model_w_age_neu.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+     Number of missing data patterns             2
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CHSC          CHCC          CASC          CACC          BDI
+              ________      ________      ________      ________      ________
+ CHSC           1.000
+ CHCC           1.000         1.000
+ CASC           1.000         1.000         1.000
+ CACC           1.000         1.000         1.000         1.000
+ BDI            0.970         0.970         0.970         0.970         0.970
+ CHAGE          1.000         1.000         1.000         1.000         0.970
+
+
+           Covariance Coverage
+              CHAGE
+              ________
+ CHAGE          1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CHSC                  2.895       0.274       0.447    1.52%       1.734      2.413      2.774
+              66.000       1.467      -0.805       5.513    1.52%       3.088      4.142
+     CHCC                 -0.328      -0.633     -22.430    1.52%      -5.060     -1.160      0.313
+              66.000      40.832       1.276      13.391    1.52%       0.944      4.127
+     CASC                  2.413       1.908       0.404    1.52%       1.260      1.913      2.146
+              66.000       1.925       5.751       8.754    1.52%       2.491      3.181
+     CACC                 -0.418       0.573      -9.135    1.52%      -2.708     -0.544     -0.211
+              66.000      14.653       4.300      15.933    1.52%       0.437      1.111
+     BDI                   7.422       1.087       0.000    7.81%       1.000      4.000      5.500
+              64.000      44.806       0.670      26.000    4.69%       8.000     12.000
+     CHAGE                18.818       0.042      12.000    4.55%      14.000     17.000     19.000
+              66.000      16.058      -0.846      28.000    1.52%      20.000     22.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              22
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                -18.931            24.061
+
+          Posterior Predictive P-Value              0.420
+
+Information Criteria
+
+          Deviance (DIC)                         2001.459
+          Estimated Number of Parameters (pD)      19.654
+          Bayesian (BIC)                         2053.155
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ CHSC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE             -0.068       0.035      0.025      -0.136       0.000
+
+ CHCC       ON
+    BDI               -0.161       0.105      0.068      -0.363       0.050
+    CHAGE             -0.068       0.035      0.025      -0.136       0.000
+
+ CASC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.063       0.040      0.058      -0.016       0.142
+
+ CACC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.063       0.040      0.058      -0.016       0.142
+
+ CHSC     WITH
+    CHCC              -3.802       1.376      0.000      -6.977      -1.563      *
+    CASC               0.423       0.288      0.051      -0.089       1.054
+    CACC               2.834       0.870      0.000       1.468       4.864      *
+
+ CHCC     WITH
+    CASC               0.301       1.424      0.411      -2.470       3.157
+    CACC             -17.000       4.535      0.000     -27.818     -10.047      *
+
+ CASC     WITH
+    CACC              -0.596       0.868      0.230      -2.412       1.060
+
+ CHAGE    WITH
+    BDI                9.845       4.228      0.003       2.716      19.491      *
+
+ Means
+    BDI                7.546       0.895      0.000       5.789       9.325      *
+    CHAGE             18.814       0.520      0.000      17.791      19.839      *
+
+ Intercepts
+    CHSC               4.169       0.672      0.000       2.850       5.501      *
+    CHCC               2.159       1.268      0.046      -0.353       4.625
+    CASC               1.219       0.776      0.057      -0.303       2.762
+    CACC              -1.606       0.910      0.039      -3.403       0.184
+
+ Variances
+    BDI               49.784       9.953      0.000      35.253      73.864      *
+    CHAGE             17.600       3.355      0.000      12.549      25.633      *
+
+ Residual Variances
+    CHSC               1.767       0.357      0.000       1.243       2.627      *
+    CHCC              44.839       8.979      0.000      31.717      66.351      *
+    CASC               2.226       0.447      0.000       1.564       3.303      *
+    CACC              16.672       3.324      0.000      11.749      24.734      *
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE             -0.209       0.101      0.025      -0.398       0.001
+
+ CHCC       ON
+    BDI               -0.166       0.109      0.068      -0.377       0.051
+    CHAGE             -0.041       0.022      0.025      -0.089       0.000
+
+ CASC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.175       0.108      0.058      -0.044       0.379
+
+ CACC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.064       0.043      0.058      -0.016       0.153
+
+ CHSC     WITH
+    CHCC              -0.434       0.110      0.000      -0.624      -0.195      *
+    CASC               0.217       0.127      0.051      -0.045       0.452
+    CACC               0.529       0.098      0.000       0.313       0.693      *
+
+ CHCC     WITH
+    CASC               0.031       0.134      0.411      -0.231       0.290
+    CACC              -0.628       0.082      0.000      -0.763      -0.444      *
+
+ CASC     WITH
+    CACC              -0.099       0.132      0.230      -0.353       0.166
+
+ CHAGE    WITH
+    BDI                0.339       0.114      0.003       0.097       0.541      *
+
+ Means
+    BDI                1.069       0.159      0.000       0.760       1.387      *
+    CHAGE              4.487       0.425      0.000       3.679       5.346      *
+
+ Intercepts
+    CHSC               3.057       0.467      0.000       2.069       3.908      *
+    CHCC               0.315       0.184      0.046      -0.051       0.670
+    CASC               0.804       0.522      0.057      -0.183       1.859
+    CACC              -0.391       0.226      0.039      -0.847       0.044
+
+ Variances
+    BDI                1.000       0.000      0.000       1.000       1.000
+    CHAGE              1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.956       0.043      0.000       0.842       0.999      *
+    CHCC               0.966       0.042      0.000       0.846       0.998      *
+    CASC               0.969       0.040      0.000       0.856       1.000      *
+    CACC               0.996       0.007      0.000       0.977       1.000      *
+
+
+STDY Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE             -0.209       0.101      0.025      -0.398       0.001
+
+ CHCC       ON
+    BDI               -0.166       0.109      0.068      -0.377       0.051
+    CHAGE             -0.041       0.022      0.025      -0.089       0.000
+
+ CASC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.175       0.108      0.058      -0.044       0.379
+
+ CACC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.064       0.043      0.058      -0.016       0.153
+
+ CHSC     WITH
+    CHCC              -0.434       0.110      0.000      -0.624      -0.195      *
+    CASC               0.217       0.127      0.051      -0.045       0.452
+    CACC               0.529       0.098      0.000       0.313       0.693      *
+
+ CHCC     WITH
+    CASC               0.031       0.134      0.411      -0.231       0.290
+    CACC              -0.628       0.082      0.000      -0.763      -0.444      *
+
+ CASC     WITH
+    CACC              -0.099       0.132      0.230      -0.353       0.166
+
+ CHAGE    WITH
+    BDI                0.339       0.114      0.003       0.097       0.541      *
+
+ Means
+    BDI                1.069       0.159      0.000       0.760       1.387      *
+    CHAGE              4.487       0.425      0.000       3.679       5.346      *
+
+ Intercepts
+    CHSC               3.057       0.467      0.000       2.069       3.908      *
+    CHCC               0.315       0.184      0.046      -0.051       0.670
+    CASC               0.804       0.522      0.057      -0.183       1.859
+    CACC              -0.391       0.226      0.039      -0.847       0.044
+
+ Variances
+    BDI                1.000       0.000      0.000       1.000       1.000
+    CHAGE              1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.956       0.043      0.000       0.842       0.999      *
+    CHCC               0.966       0.042      0.000       0.846       0.998      *
+    CASC               0.969       0.040      0.000       0.856       1.000      *
+    CACC               0.996       0.007      0.000       0.977       1.000      *
+
+
+STD Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE             -0.068       0.035      0.025      -0.136       0.000
+
+ CHCC       ON
+    BDI               -0.161       0.105      0.068      -0.363       0.050
+    CHAGE             -0.068       0.035      0.025      -0.136       0.000
+
+ CASC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.063       0.040      0.058      -0.016       0.142
+
+ CACC       ON
+    BDI                0.000       0.000      1.000       0.000       0.000
+    CHAGE              0.063       0.040      0.058      -0.016       0.142
+
+ CHSC     WITH
+    CHCC              -3.802       1.376      0.000      -6.977      -1.563      *
+    CASC               0.423       0.288      0.051      -0.089       1.054
+    CACC               2.834       0.870      0.000       1.468       4.864      *
+
+ CHCC     WITH
+    CASC               0.301       1.424      0.411      -2.470       3.157
+    CACC             -17.000       4.535      0.000     -27.818     -10.047      *
+
+ CASC     WITH
+    CACC              -0.596       0.868      0.230      -2.412       1.060
+
+ CHAGE    WITH
+    BDI                9.845       4.228      0.003       2.716      19.491      *
+
+ Means
+    BDI                7.546       0.895      0.000       5.789       9.325      *
+    CHAGE             18.814       0.520      0.000      17.791      19.839      *
+
+ Intercepts
+    CHSC               4.169       0.672      0.000       2.850       5.501      *
+    CHCC               2.159       1.268      0.046      -0.353       4.625
+    CASC               1.219       0.776      0.057      -0.303       2.762
+    CACC              -1.606       0.910      0.039      -3.403       0.184
+
+ Variances
+    BDI               49.784       9.953      0.000      35.253      73.864      *
+    CHAGE             17.600       3.355      0.000      12.549      25.633      *
+
+ Residual Variances
+    CHSC               1.767       0.357      0.000       1.243       2.627      *
+    CHCC              44.839       8.979      0.000      31.717      66.351      *
+    CASC               2.226       0.447      0.000       1.564       3.303      *
+    CACC              16.672       3.324      0.000      11.749      24.734      *
+
+
+R-SQUARE
+
+                                Posterior  One-Tailed         95% C.I.
+    Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
+
+    CHSC               0.044       0.043      0.000       0.001       0.158
+    CHCC               0.034       0.042      0.000       0.002       0.154
+    CASC               0.031       0.040      0.000       0.000       0.144
+    CACC               0.004       0.007      0.000       0.000       0.023
+
+
+     Beginning Time:  14:16:55
+        Ending Time:  14:16:58
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen

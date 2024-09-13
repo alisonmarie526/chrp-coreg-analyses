@@ -1,0 +1,41 @@
+TITLE:
+Testing
+DATA:
+FILE = "anx_sx_model_w_age_neg.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc bai chage; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON bai; 
+chsc ON chage* (a); 
+chcc ON bai; 
+chcc ON chage* (a); 
+casc ON bai; 
+casc ON chage* (b); 
+cacc ON bai; 
+cacc ON chage* (b); 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+bai WITH bai; 
+chage WITH chage; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[bai]; 
+[chage]; 
+
+OUTPUT:
+STANDARDIZED;

@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "neg_sx_model_w_chfm_neu.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc negsx chfm; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON negsx* (a);  
+chsc ON chfm* (b); 
+chcc ON negsx; 
+chcc ON chfm* (b); 
+casc ON negsx@0; 
+casc ON chfm; 
+cacc ON negsx* (a); 
+cacc ON chfm* (b); 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+negsx WITH negsx; 
+negsx WITH chfm; 
+chfm WITH chfm; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[negsx]; 
+[chfm]; 
+
+OUTPUT:
+STANDARDIZED;

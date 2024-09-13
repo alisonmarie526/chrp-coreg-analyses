@@ -1,0 +1,429 @@
+Mplus VERSION 8.2 (Mac)
+MUTHEN & MUTHEN
+08/28/2024   1:47 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Testing
+  DATA:
+  FILE = "dis_sx_model_w_chwh_pos.dat";
+
+  VARIABLE:
+  NAMES = chsc chcc casc cacc dissx chwh;
+   MISSING=.;
+
+  ANALYSIS:
+  ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+  MODEL:
+  chsc ON dissx@0;
+  chsc ON chwh;
+  chcc ON dissx;
+  chcc ON chwh;
+  casc ON dissx@0;
+  casc ON chwh;
+  cacc ON dissx;
+  cacc ON chwh;
+  chsc WITH chcc@0;
+  chsc WITH casc@0;
+  chsc WITH cacc@0;
+  chcc WITH casc@0;
+  chcc WITH cacc;
+  casc WITH cacc@0;
+  chsc WITH chsc;
+  chcc WITH chcc;
+  casc WITH casc;
+  cacc WITH cacc;
+  dissx WITH dissx;
+  dissx WITH chwh;
+  chwh WITH chwh;
+  [chsc];
+  [chcc];
+  [casc];
+  [cacc];
+  [dissx];
+  [chwh];
+
+  OUTPUT:
+  STANDARDIZED;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Testing
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          68
+
+Number of dependent variables                                    4
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   CHSC        CHCC        CASC        CACC
+
+Observed independent variables
+   DISSX       CHWH
+
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+
+Input data file(s)
+  dis_sx_model_w_chwh_pos.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+     Number of missing data patterns             2
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CHSC          CHCC          CASC          CACC          DISSX
+              ________      ________      ________      ________      ________
+ CHSC           1.000
+ CHCC           1.000         1.000
+ CASC           1.000         1.000         1.000
+ CACC           1.000         1.000         1.000         1.000
+ DISSX          0.941         0.941         0.941         0.941         0.941
+ CHWH           1.000         1.000         1.000         1.000         0.941
+
+
+           Covariance Coverage
+              CHWH
+              ________
+ CHWH           1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CHSC                  2.894       0.448       0.369    1.47%       1.783      2.328      2.761
+              68.000       1.755      -0.631       5.634    1.47%       2.996      4.196
+     CHCC                  1.257      -0.042     -29.421    1.47%      -2.841     -0.768      0.420
+              68.000      61.282       4.132      28.205    1.47%       1.592      4.969
+     CASC                  2.413       3.149       0.173    1.47%       1.349      1.820      1.905
+              68.000       3.393      12.255      11.915    1.47%       2.145      3.150
+     CACC                 -0.360      -0.284     -12.711    1.47%      -2.128     -1.135     -0.147
+              68.000      11.603       3.090      11.197    1.47%       0.295      1.861
+     DISSX                 1.719       1.452       0.000   42.19%       0.000      0.000      1.000
+              64.000       4.546       1.732       9.000    1.56%       2.000      3.000
+     CHWH                  0.456       0.177       0.000   54.41%       0.000      0.000      0.000
+              68.000       0.248      -1.969       1.000   45.59%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              20
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                -18.986            21.560
+
+          Posterior Predictive P-Value              0.435
+
+Information Criteria
+
+          Deviance (DIC)                         1719.296
+          Estimated Number of Parameters (pD)      19.030
+          Bayesian (BIC)                         1764.781
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ CHSC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.749       0.325      0.011      -1.390      -0.114      *
+
+ CHCC       ON
+    DISSX             -1.142       0.503      0.016      -2.082      -0.116      *
+    CHWH               0.754       1.950      0.348      -3.089       4.566
+
+ CASC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.001       0.469      0.499      -0.917       0.924
+
+ CACC       ON
+    DISSX              0.399       0.199      0.023       0.005       0.783      *
+    CHWH               0.468       0.860      0.291      -1.224       2.174
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC             -14.261       4.214      0.000     -24.108      -7.595      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ DISSX    WITH
+    CHWH               0.027       0.160      0.429      -0.284       0.352
+
+ Means
+    DISSX              1.748       0.285      0.000       1.192       2.313      *
+    CHWH               0.456       0.064      0.000       0.332       0.581      *
+
+ Intercepts
+    CHSC               3.236       0.219      0.000       2.809       3.668      *
+    CHCC               2.901       1.567      0.033      -0.202       5.955
+    CASC               2.415       0.317      0.000       1.786       3.030      *
+    CACC              -1.266       0.673      0.028      -2.605       0.038
+
+ Variances
+    DISSX              5.063       0.991      0.000       3.585       7.464      *
+    CHWH               0.271       0.051      0.000       0.194       0.392      *
+
+ Residual Variances
+    CHSC               1.736       0.321      0.000       1.252       2.499      *
+    CHCC              62.020      12.258      0.000      43.798      91.456      *
+    CASC               3.645       0.677      0.000       2.632       5.272      *
+    CACC              12.177       2.322      0.000       8.680      17.714      *
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.283       0.116      0.011      -0.495      -0.044      *
+
+ CHCC       ON
+    DISSX             -0.307       0.130      0.016      -0.537      -0.031      *
+    CHWH               0.047       0.119      0.348      -0.188       0.277
+
+ CASC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH               0.000       0.125      0.499      -0.244       0.243
+
+ CACC       ON
+    DISSX              0.245       0.117      0.023       0.003       0.459      *
+    CHWH               0.067       0.120      0.291      -0.172       0.300
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC              -0.526       0.094      0.000      -0.685      -0.316      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ DISSX    WITH
+    CHWH               0.024       0.129      0.429      -0.228       0.276
+
+ Means
+    DISSX              0.777       0.143      0.000       0.496       1.059      *
+    CHWH               0.877       0.144      0.000       0.595       1.159      *
+
+ Intercepts
+    CHSC               2.339       0.227      0.000       1.892       2.778      *
+    CHCC               0.346       0.181      0.033      -0.024       0.681
+    CASC               1.259       0.197      0.000       0.862       1.636      *
+    CACC              -0.347       0.176      0.028      -0.679       0.010
+
+ Variances
+    DISSX              1.000       0.000      0.000       1.000       1.000
+    CHWH               1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.920       0.065      0.000       0.755       0.997      *
+    CHCC               0.889       0.079      0.000       0.697       0.991      *
+    CASC               0.993       0.022      0.000       0.922       1.000      *
+    CACC               0.919       0.062      0.000       0.762       0.994      *
+
+
+STDY Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.283       0.116      0.011      -0.495      -0.044      *
+
+ CHCC       ON
+    DISSX             -0.307       0.130      0.016      -0.537      -0.031      *
+    CHWH               0.047       0.119      0.348      -0.188       0.277
+
+ CASC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH               0.000       0.125      0.499      -0.244       0.243
+
+ CACC       ON
+    DISSX              0.245       0.117      0.023       0.003       0.459      *
+    CHWH               0.067       0.120      0.291      -0.172       0.300
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC              -0.526       0.094      0.000      -0.685      -0.316      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ DISSX    WITH
+    CHWH               0.024       0.129      0.429      -0.228       0.276
+
+ Means
+    DISSX              0.777       0.143      0.000       0.496       1.059      *
+    CHWH               0.877       0.144      0.000       0.595       1.159      *
+
+ Intercepts
+    CHSC               2.339       0.227      0.000       1.892       2.778      *
+    CHCC               0.346       0.181      0.033      -0.024       0.681
+    CASC               1.259       0.197      0.000       0.862       1.636      *
+    CACC              -0.347       0.176      0.028      -0.679       0.010
+
+ Variances
+    DISSX              1.000       0.000      0.000       1.000       1.000
+    CHWH               1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.920       0.065      0.000       0.755       0.997      *
+    CHCC               0.889       0.079      0.000       0.697       0.991      *
+    CASC               0.993       0.022      0.000       0.922       1.000      *
+    CACC               0.919       0.062      0.000       0.762       0.994      *
+
+
+STD Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.749       0.325      0.011      -1.390      -0.114      *
+
+ CHCC       ON
+    DISSX             -1.142       0.503      0.016      -2.082      -0.116      *
+    CHWH               0.754       1.950      0.348      -3.089       4.566
+
+ CASC       ON
+    DISSX              0.000       0.000      1.000       0.000       0.000
+    CHWH              -0.001       0.469      0.499      -0.917       0.924
+
+ CACC       ON
+    DISSX              0.399       0.199      0.023       0.005       0.783      *
+    CHWH               0.468       0.860      0.291      -1.224       2.174
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC             -14.261       4.214      0.000     -24.108      -7.595      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ DISSX    WITH
+    CHWH               0.027       0.160      0.429      -0.284       0.352
+
+ Means
+    DISSX              1.748       0.285      0.000       1.192       2.313      *
+    CHWH               0.456       0.064      0.000       0.332       0.581      *
+
+ Intercepts
+    CHSC               3.236       0.219      0.000       2.809       3.668      *
+    CHCC               2.901       1.567      0.033      -0.202       5.955
+    CASC               2.415       0.317      0.000       1.786       3.030      *
+    CACC              -1.266       0.673      0.028      -2.605       0.038
+
+ Variances
+    DISSX              5.063       0.991      0.000       3.585       7.464      *
+    CHWH               0.271       0.051      0.000       0.194       0.392      *
+
+ Residual Variances
+    CHSC               1.736       0.321      0.000       1.252       2.499      *
+    CHCC              62.020      12.258      0.000      43.798      91.456      *
+    CASC               3.645       0.677      0.000       2.632       5.272      *
+    CACC              12.177       2.322      0.000       8.680      17.714      *
+
+
+R-SQUARE
+
+                                Posterior  One-Tailed         95% C.I.
+    Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
+
+    CHSC               0.080       0.065      0.000       0.003       0.245
+    CHCC               0.111       0.079      0.000       0.009       0.303
+    CASC               0.007       0.022      0.000       0.000       0.078
+    CACC               0.081       0.062      0.000       0.006       0.238
+
+
+     Beginning Time:  13:47:37
+        Ending Time:  13:47:40
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen

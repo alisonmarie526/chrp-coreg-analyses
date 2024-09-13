@@ -1,0 +1,35 @@
+TITLE:
+Testing
+DATA:
+FILE = "anx_sx_model_pos.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc bai; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON bai@0; 
+chcc ON bai* (b); 
+casc ON bai@0; 
+cacc ON bai* (b); 
+chsc WITH chcc@0; 
+chsc WITH casc@0; 
+chsc WITH cacc@0; 
+chcc WITH casc@0; 
+chcc WITH cacc; 
+casc WITH cacc@0; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+bai WITH bai; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[bai]; 
+
+OUTPUT:
+STANDARDIZED;

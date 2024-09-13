@@ -1,0 +1,42 @@
+TITLE:
+Testing
+DATA:
+FILE = "dep_sx_model_w_age_neu.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc bdi chage; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON bdi@0; 
+chsc ON chage*(a); 
+chcc ON bdi; 
+chcc ON chage*(a); 
+casc ON bdi@0; 
+casc ON chage* (b); 
+cacc ON bdi@0; 
+cacc ON chage* (b); 
+chsc WITH chcc; 
+chsc WITH casc; 
+chsc WITH cacc; 
+chcc WITH casc; 
+chcc WITH cacc; 
+casc WITH cacc; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+bdi WITH bdi; 
+
+chage WITH chage; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[bdi]; 
+[chage]; 
+
+OUTPUT:
+STANDARDIZED;

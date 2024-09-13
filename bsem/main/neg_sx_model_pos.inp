@@ -1,0 +1,35 @@
+TITLE:
+Testing
+DATA:
+FILE = "neg_sx_model_pos.dat";
+ 
+VARIABLE:
+NAMES = chsc chcc casc cacc negsx; 
+ MISSING=.;
+ 
+ANALYSIS:
+ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+MODEL:
+chsc ON negsx@0; 
+chcc ON negsx; 
+casc ON negsx@0; 
+cacc ON negsx; 
+chsc WITH chcc@0; 
+chsc WITH casc@0; 
+chsc WITH cacc@0; 
+chcc WITH casc@0; 
+chcc WITH cacc; 
+casc WITH cacc@0; 
+chsc WITH chsc; 
+chcc WITH chcc; 
+casc WITH casc; 
+cacc WITH cacc; 
+negsx WITH negsx; 
+[chsc]; 
+[chcc]; 
+[casc]; 
+[cacc]; 
+[negsx]; 
+
+OUTPUT:
+STANDARDIZED;

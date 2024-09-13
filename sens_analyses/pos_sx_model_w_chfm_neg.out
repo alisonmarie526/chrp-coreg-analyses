@@ -1,0 +1,429 @@
+Mplus VERSION 8.2 (Mac)
+MUTHEN & MUTHEN
+08/28/2024   1:13 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:
+  Testing
+  DATA:
+  FILE = "pos_sx_model_w_chfm_neg.dat";
+
+  VARIABLE:
+  NAMES = chsc chcc casc cacc possx chfm;
+   MISSING=.;
+
+  ANALYSIS:
+  ESTIMATOR=BAYES; PROCESSORS = 2;BITERATIONS = (49000)
+  MODEL:
+  chsc ON possx@0;
+  chsc ON chfm;
+  chcc ON possx;
+  chcc ON chfm;
+  casc ON possx* (a);
+  casc ON chfm;
+  cacc ON possx* (a);
+  cacc ON chfm;
+  chsc WITH chcc@0;
+  chsc WITH casc@0;
+  chsc WITH cacc@0;
+  chcc WITH casc@0;
+  chcc WITH cacc;
+  casc WITH cacc@0;
+  chsc WITH chsc;
+  chcc WITH chcc;
+  casc WITH casc;
+  cacc WITH cacc;
+  possx WITH possx;
+  possx WITH chfm;
+  chfm WITH chfm;
+  [chsc];
+  [chcc];
+  [casc];
+  [cacc];
+  [possx];
+  [chfm];
+
+  OUTPUT:
+  STANDARDIZED;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+
+Testing
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                          66
+
+Number of dependent variables                                    4
+Number of independent variables                                  2
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   CHSC        CHCC        CASC        CACC
+
+Observed independent variables
+   POSSX       CHFM
+
+
+Estimator                                                    BAYES
+Specifications for Bayesian Estimation
+  Point estimate                                            MEDIAN
+  Number of Markov chain Monte Carlo (MCMC) chains               2
+  Random seed for the first chain                                0
+  Starting value information                           UNPERTURBED
+  Algorithm used for Markov chain Monte Carlo           GIBBS(PX1)
+  Convergence criterion                                  0.500D-01
+  Maximum number of iterations                               50000
+  K-th iteration used for thinning                               1
+
+Input data file(s)
+  pos_sx_model_w_chfm_neg.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+     Number of missing data patterns             2
+
+
+     PROPORTION OF DATA PRESENT
+
+
+           Covariance Coverage
+              CHSC          CHCC          CASC          CACC          POSSX
+              ________      ________      ________      ________      ________
+ CHSC           1.000
+ CHCC           1.000         1.000
+ CASC           1.000         1.000         1.000
+ CACC           1.000         1.000         1.000         1.000
+ POSSX          0.970         0.970         0.970         0.970         0.970
+ CHFM           1.000         1.000         1.000         1.000         0.970
+
+
+           Covariance Coverage
+              CHFM
+              ________
+ CHFM           1.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     CHSC                  2.789       0.912       0.884    1.52%       1.550      2.236      2.478
+              66.000       1.759       0.087       6.266    1.52%       2.723      3.726
+     CHCC                  0.236      -1.642     -29.952    1.52%      -2.994     -0.412      0.428
+              66.000      41.162       6.549      14.882    1.52%       0.926      4.943
+     CASC                  2.423       2.400      -0.698    1.52%       1.176      1.758      2.059
+              66.000       3.578       7.017      10.998    1.52%       2.213      2.720
+     CACC                 -0.675      -0.840     -10.489    1.52%      -3.207     -1.126     -0.251
+              66.000       6.952       1.631       4.504    1.52%       0.315      1.045
+     POSSX                 5.297       0.626       0.000   17.19%       1.000      2.000      3.000
+              64.000      25.084      -1.025      16.000    3.12%       5.000     11.000
+     CHFM                  0.455       0.183       0.000   54.55%       0.000      0.000      0.000
+              66.000       0.248      -1.967       1.000   45.45%       1.000      1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+     USE THE FBITERATIONS OPTION TO INCREASE THE NUMBER OF ITERATIONS BY A FACTOR
+     OF AT LEAST TWO TO CHECK CONVERGENCE AND THAT THE PSR VALUE DOES NOT INCREASE.
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                              20
+
+Bayesian Posterior Predictive Checking using Chi-Square
+
+          95% Confidence Interval for the Difference Between
+          the Observed and the Replicated Chi-Square Values
+
+                                -13.751            26.397
+
+          Posterior Predictive P-Value              0.255
+
+Information Criteria
+
+          Deviance (DIC)                         1706.477
+          Estimated Number of Parameters (pD)      19.005
+          Bayesian (BIC)                         1751.399
+
+
+
+MODEL RESULTS
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+
+ CHSC       ON
+    POSSX              0.000       0.000      1.000       0.000       0.000
+    CHFM               0.650       0.334      0.026      -0.006       1.306
+
+ CHCC       ON
+    POSSX             -0.406       0.138      0.002      -0.676      -0.136      *
+    CHFM              -1.271       1.640      0.214      -4.521       1.941
+
+ CASC       ON
+    POSSX              0.097       0.040      0.008       0.019       0.176      *
+    CHFM              -0.071       0.488      0.442      -1.022       0.885
+
+ CACC       ON
+    POSSX              0.097       0.040      0.008       0.019       0.176      *
+    CHFM              -0.001       0.687      0.499      -1.346       1.339
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC             -11.669       2.884      0.000     -18.567      -7.288      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ POSSX    WITH
+    CHFM              -0.637       0.384      0.032      -1.482       0.037
+
+ Means
+    POSSX              5.301       0.659      0.000       3.993       6.590      *
+    CHFM               0.455       0.065      0.000       0.327       0.583      *
+
+ Intercepts
+    CHSC               2.494       0.223      0.000       2.055       2.929      *
+    CHCC               2.956       1.398      0.018       0.222       5.723      *
+    CASC               1.941       0.411      0.000       1.128       2.744      *
+    CACC              -1.188       0.527      0.012      -2.232      -0.160      *
+
+ Variances
+    POSSX             27.387       5.338      0.000      19.443      40.201      *
+    CHFM               0.271       0.052      0.000       0.194       0.397      *
+
+ Residual Variances
+    CHSC               1.779       0.338      0.000       1.274       2.599      *
+    CHCC              41.485       8.036      0.000      29.448      60.866      *
+    CASC               3.658       0.698      0.000       2.620       5.336      *
+    CACC               7.433       1.436      0.000       5.322      10.893      *
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    POSSX              0.000       0.000      1.000       0.000       0.000
+    CHFM               0.246       0.120      0.026      -0.002       0.465
+
+ CHCC       ON
+    POSSX             -0.312       0.102      0.002      -0.504      -0.104      *
+    CHFM              -0.098       0.123      0.214      -0.336       0.145
+
+ CASC       ON
+    POSSX              0.254       0.102      0.008       0.049       0.446      *
+    CHFM              -0.019       0.125      0.442      -0.260       0.227
+
+ CACC       ON
+    POSSX              0.181       0.076      0.008       0.035       0.332      *
+    CHFM               0.000       0.126      0.499      -0.244       0.247
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC              -0.670       0.073      0.000      -0.789      -0.504      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ POSSX    WITH
+    CHFM              -0.238       0.122      0.032      -0.463       0.014
+
+ Means
+    POSSX              1.013       0.156      0.000       0.711       1.322      *
+    CHFM               0.874       0.147      0.000       0.588       1.161      *
+
+ Intercepts
+    CHSC               1.803       0.251      0.000       1.319       2.300      *
+    CHCC               0.433       0.196      0.018       0.033       0.802      *
+    CASC               0.969       0.230      0.000       0.525       1.424      *
+    CACC              -0.425       0.188      0.012      -0.791      -0.055      *
+
+ Variances
+    POSSX              1.000       0.000      0.000       1.000       1.000
+    CHFM               1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.939       0.059      0.000       0.783       0.999      *
+    CHCC               0.893       0.063      0.000       0.742       0.981      *
+    CASC               0.918       0.055      0.000       0.779       0.990      *
+    CACC               0.953       0.036      0.000       0.858       0.994      *
+
+
+STDY Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    POSSX              0.000       0.000      1.000       0.000       0.000
+    CHFM               0.246       0.120      0.026      -0.002       0.465
+
+ CHCC       ON
+    POSSX             -0.312       0.102      0.002      -0.504      -0.104      *
+    CHFM              -0.098       0.123      0.214      -0.336       0.145
+
+ CASC       ON
+    POSSX              0.254       0.102      0.008       0.049       0.446      *
+    CHFM              -0.019       0.125      0.442      -0.260       0.227
+
+ CACC       ON
+    POSSX              0.181       0.076      0.008       0.035       0.332      *
+    CHFM               0.000       0.126      0.499      -0.244       0.247
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC              -0.670       0.073      0.000      -0.789      -0.504      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ POSSX    WITH
+    CHFM              -0.238       0.122      0.032      -0.463       0.014
+
+ Means
+    POSSX              1.013       0.156      0.000       0.711       1.322      *
+    CHFM               0.874       0.147      0.000       0.588       1.161      *
+
+ Intercepts
+    CHSC               1.803       0.251      0.000       1.319       2.300      *
+    CHCC               0.433       0.196      0.018       0.033       0.802      *
+    CASC               0.969       0.230      0.000       0.525       1.424      *
+    CACC              -0.425       0.188      0.012      -0.791      -0.055      *
+
+ Variances
+    POSSX              1.000       0.000      0.000       1.000       1.000
+    CHFM               1.000       0.000      0.000       1.000       1.000
+
+ Residual Variances
+    CHSC               0.939       0.059      0.000       0.783       0.999      *
+    CHCC               0.893       0.063      0.000       0.742       0.981      *
+    CASC               0.918       0.055      0.000       0.779       0.990      *
+    CACC               0.953       0.036      0.000       0.858       0.994      *
+
+
+STD Standardization
+
+                                Posterior  One-Tailed         95% C.I.
+                    Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%  Significance
+ CHSC       ON
+    POSSX              0.000       0.000      1.000       0.000       0.000
+    CHFM               0.650       0.334      0.026      -0.006       1.306
+
+ CHCC       ON
+    POSSX             -0.406       0.138      0.002      -0.676      -0.136      *
+    CHFM              -1.271       1.640      0.214      -4.521       1.941
+
+ CASC       ON
+    POSSX              0.097       0.040      0.008       0.019       0.176      *
+    CHFM              -0.071       0.488      0.442      -1.022       0.885
+
+ CACC       ON
+    POSSX              0.097       0.040      0.008       0.019       0.176      *
+    CHFM              -0.001       0.687      0.499      -1.346       1.339
+
+ CHSC     WITH
+    CHCC               0.000       0.000      1.000       0.000       0.000
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ CHCC     WITH
+    CASC               0.000       0.000      1.000       0.000       0.000
+    CACC             -11.669       2.884      0.000     -18.567      -7.288      *
+
+ CASC     WITH
+    CACC               0.000       0.000      1.000       0.000       0.000
+
+ POSSX    WITH
+    CHFM              -0.637       0.384      0.032      -1.482       0.037
+
+ Means
+    POSSX              5.301       0.659      0.000       3.993       6.590      *
+    CHFM               0.455       0.065      0.000       0.327       0.583      *
+
+ Intercepts
+    CHSC               2.494       0.223      0.000       2.055       2.929      *
+    CHCC               2.956       1.398      0.018       0.222       5.723      *
+    CASC               1.941       0.411      0.000       1.128       2.744      *
+    CACC              -1.188       0.527      0.012      -2.232      -0.160      *
+
+ Variances
+    POSSX             27.387       5.338      0.000      19.443      40.201      *
+    CHFM               0.271       0.052      0.000       0.194       0.397      *
+
+ Residual Variances
+    CHSC               1.779       0.338      0.000       1.274       2.599      *
+    CHCC              41.485       8.036      0.000      29.448      60.866      *
+    CASC               3.658       0.698      0.000       2.620       5.336      *
+    CACC               7.433       1.436      0.000       5.322      10.893      *
+
+
+R-SQUARE
+
+                                Posterior  One-Tailed         95% C.I.
+    Variable        Estimate       S.D.      P-Value   Lower 2.5%  Upper 2.5%
+
+    CHSC               0.061       0.059      0.000       0.001       0.217
+    CHCC               0.107       0.063      0.000       0.019       0.258
+    CASC               0.082       0.055      0.000       0.010       0.221
+    CACC               0.047       0.036      0.000       0.006       0.142
+
+
+     Beginning Time:  13:13:38
+        Ending Time:  13:13:41
+       Elapsed Time:  00:00:03
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2018 Muthen & Muthen
